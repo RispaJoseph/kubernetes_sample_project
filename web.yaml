@@ -23,4 +23,33 @@ spec:
         resources: {}
 status: {}
 
-
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-11-28T16:10:43Z"
+  labels:
+    app: web
+  name: web
+  namespace: default
+  resourceVersion: "16037"
+  uid: ad14a6d1-98fc-4149-a4bc-6e8b04663e20
+spec:
+  clusterIP: 10.100.41.50
+  clusterIPs:
+  - 10.100.41.50
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 32013
+    port: 8090
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: web
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
