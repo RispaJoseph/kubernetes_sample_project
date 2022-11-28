@@ -1,2 +1,0 @@
-# kubernetes_sample_project
-kubernetes_sample_project
