@@ -1,28 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  creationTimestamp: null
-  labels:
-    app: web
-  name: web
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: web
-  strategy: {}
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: web
-    spec:
-      containers:
-      - image: arun
-        name: web
-        resources: {}
-status: {}
-
 apiVersion: v1
 kind: Service
 metadata:
