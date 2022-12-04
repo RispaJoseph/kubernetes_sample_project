@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: web
-  name: web
+    app: test
+  name: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: test
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: web
+        app: test
     spec:
       containers:
-      - image: arunbabu01/techask
-        name: web
+      - image: test
+        name: test
         resources: {}
 status: {}
