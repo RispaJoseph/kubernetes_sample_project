@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/RispaJoseph/Demo.git'
+            }
+        }
+    stage('Cheking user') {
+            steps {
+                sh 'whoami'
+            }
+        }
+    // stage('setting user') {
+    //         steps {
+    //             sh 'sudo docker build -t testnginx .'
+    //         }
+    //     }
+    stage('User setting') {
+            steps {
+                sh "sudo chown root:jenkins /run/docker.sock"
+            }
+        }
+    // stage('stoping minikube1') {
+    //         steps {
+    //             sh 'minikube stop' 
+    //         }
+    //     }
+    // stage('purge minikube1') {
+    //         steps {
+    //             sh 'minikube delete --all --purge' 
+    //         }
+    //     }
+    stage('starting minikube3') {
+            steps {
+                sh 'minikube start' 
+            }
+        }
+    stage('Checking files') {
+            steps {
+                sh 'ls' 
+            }
+        }
+        
+    stage('deploying pod') {
+            steps {
+                sh "kubectl apply -f '*.yaml'"
+            }
+        }
+    }
+}
